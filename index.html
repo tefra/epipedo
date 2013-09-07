@@ -1,0 +1,987 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link type="text/css" href="epipedo.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="epipedo.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("a[title]").tooltip();
+            });
+        </script>
+
+
+
+
+        <style>
+            .container {
+                width: 920px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Heading</h1>
+            <h2>Heading</h2>
+            <h3>Heading</h3>
+            <h4>Heading</h4>
+            <h5>Heading</h5>
+            <h6>Heading</h6>
+            <p><a href="#">Link</a></p>
+            <p><small>Small Text</small></p>
+            <p><strong>Strong Text</strong></p>
+            <p><em>Em Text</em></p>
+            <p><cite>Cite Text</cite></p>
+            <p><abbr title="National Aeronautics and Space Administration">NASA</abbr></p>
+            <address>
+                <strong>NASA HQ Mailing and Address</strong><br />
+                300 E Street SW<br />
+                Washington DC 20024-3210<br />
+            </address>
+            <blockquote>
+                <p>Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.</p>
+                <cite><a href="http://en.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a></cite>
+            </blockquote>
+            <hr />
+            <code>\lithium\core\Controller::Whatever</code>
+            <hr />
+
+
+            <pre><code class="php">class Model extends \lithium\data\Model {
+	public static function __init() {
+		static::finder('columns', function($self, $params, $chain) {
+			$options = &amp;$params['options'];
+			$options['return'] = 'resource';
+			if ($options['fields'] === null || empty($options['fields'])) {
+				$options['fields'] = array($self::meta('key'));
+			} elseif (count($options['fields']) &gt; 1) {
+				$options['fields'] = array_slice($options['fields'], 0, 1);
+			}
+
+			$result = array();
+			foreach ($chain-&gt;next($self, $params, $chain) as $data) {
+				$result[] = $data[0];
+			}
+			return $result;
+		});
+
+		static::finder('pairs', function($self, $params, $chain) {
+			$options = &amp;$params['options'];
+			$options['return'] = 'resource';
+			if ($options['fields'] === null || count($options['fields']) &lt; 2) {
+				$key = $self::meta('key');
+				$title = $self::meta('title');
+				$options['fields'] = array($key, $title);
+			} elseif (count($options['fields']) &gt; 2) {
+				$options['fields'] = array_slice($options['fields'], 0, 2);
+			}
+
+			$result = array();
+			foreach ($chain-&gt;next($self, $params, $chain) as $data) {
+				$result[$data[0]] = $data[1];
+			}
+			return $result;
+		});
+	}
+}</code></pre>
+
+            <h3>Buttons</h3>
+
+            <p>
+                <a href="#" class="btn emergency">Button</a>
+                <a href="#" class="btn alert">Button</a>
+                <a href="#" class="btn critical">Button</a>
+                <a href="#" class="btn error">Button</a>
+                <a href="#" class="btn warning">Button</a>
+                <a href="#" class="btn notice">Button</a>
+                <a href="#" class="btn info">Button</a>
+                <a href="#" class="btn debug">Button</a>
+
+
+            </p>
+            <p>
+                <a href="#" class="btn emergency disabled">Button</a>
+                <a href="#" class="btn alert disabled">Button</a>
+                <a href="#" class="btn critical disabled">Button</a>
+                <a href="#" class="btn error disabled">Button</a>
+                <a href="#" class="btn warning disabled">Button</a>
+                <a href="#" class="btn notice disabled">Button</a>
+                <a href="#" class="btn info disabled">Button</a>
+                <a href="#" class="btn debug disabled">Button</a>
+
+
+
+
+            </p>
+
+            <h4>Sizes</h4>
+
+            <p>
+                <a href="#" class="btn debug small">Button</a>
+                <a href="#" class="btn info medium">Button</a>
+                <a href="#" class="btn notice">Button</a>
+                <a href="#" class="btn warning large">Button</a>
+                <a href="#" class="btn error xlarge">Button</a>
+
+            </p>
+
+
+            <h4>Button links, inputs</h4>
+
+
+            <p>
+                <a href="#" class="btn">Link</a>
+                <input type="submit" class="btn" value="Submit">
+                <button type="button" class="btn">Button</button>
+            </p>
+
+
+            <h4>Button Groups</h4>
+
+            <div class="btn-group">
+                <a href="#" class="btn small">A</a>
+                <a href="#" class="btn small">B</a>
+                <a href="#" class="btn small">C</a>
+                <a href="#" class="btn small">D</a>
+                <a href="#" class="btn small">E</a>
+                <a href="#" class="btn small">F</a>
+                <a href="#" class="btn small">G</a>
+                <a href="#" class="btn small">H</a>
+                <a href="#" class="btn small">I</a>
+                <a href="#" class="btn small">J</a>
+                <a href="#" class="btn small">K</a>
+                <a href="#" class="btn small">L</a>
+                <a href="#" class="btn small">M</a>
+                <a href="#" class="btn small">N</a>
+                <a href="#" class="btn small">O</a>
+                <a href="#" class="btn small">P</a>
+                <a href="#" class="btn small">Q</a>
+                <a href="#" class="btn small">R</a>
+                <a href="#" class="btn small">S</a>
+                <a href="#" class="btn small">T</a>
+                <a href="#" class="btn small">U</a>
+                <a href="#" class="btn small">V</a>
+                <a href="#" class="btn small">W</a>
+                <a href="#" class="btn small">X</a>
+                <a href="#" class="btn small">Y</a>
+                <a href="#" class="btn small">Z</a>
+            </div>
+
+
+            <hr />
+            <div class="btn-group">
+                <a href="#" class="btn medium">A</a>
+                <a href="#" class="btn medium">B</a>
+                <a href="#" class="btn medium">C</a>
+                <a href="#" class="btn medium">D</a>
+                <a href="#" class="btn medium">E</a>
+                <a href="#" class="btn medium">F</a>
+                <a href="#" class="btn medium">G</a>
+                <a href="#" class="btn medium">H</a>
+                <a href="#" class="btn medium">I</a>
+                <a href="#" class="btn medium">J</a>
+                <a href="#" class="btn medium">K</a>
+                <a href="#" class="btn medium">L</a>
+                <a href="#" class="btn medium">M</a>
+                <a href="#" class="btn medium">N</a>
+                <a href="#" class="btn medium">O</a>
+                <a href="#" class="btn medium">P</a>
+                <a href="#" class="btn medium">Q</a>
+                <a href="#" class="btn medium">R</a>
+                <a href="#" class="btn medium">S</a>
+                <a href="#" class="btn medium">T</a>
+                <a href="#" class="btn medium">U</a>
+                <a href="#" class="btn medium">V</a>
+                <a href="#" class="btn medium">W</a>
+                <a href="#" class="btn medium">X</a>
+                <a href="#" class="btn medium">Y</a>
+                <a href="#" class="btn medium">Z</a>
+            </div>
+
+            <br />
+            <hr />
+
+            <form class="inline">
+                <dl>
+                    <dt><label for="whatever">Search</label></dt>
+                    <dd><input id="whatever" type="text" class="small" /></dd>
+                </dl>
+
+                <input type="submit" value="Search" class="btn small" />
+            </form>
+
+            <hr />
+
+            <p><input type="text" class="small" placeholder="Small" /></p>
+            <p><input type="text" class="medium" placeholder="Medium" /></p>
+            <p><input type="text" class="" placeholder="Default" disabled /></p>
+            <p><input type="text" class="large" placeholder="Large" /></p>
+            <p><input type="text" class="xlarge" placeholder="XLarge" /></p>
+
+            <form class="horizontal" method="post">
+                <fieldset>
+                    <legend>Horizontal Form</legend>
+                    <dl>
+                        <dt><label for="LanguagesCode">Language Code</label></dt>
+                        <dd>
+                            <input type="text" name="code" id="LanguagesCode" tabindex="1001" value="en">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><label for="LanguagesTitle">Title</label></dt>
+                        <dd>
+                            <input type="text" name="title" id="LanguagesTitle" tabindex="1002" value="English">
+                        </dd>
+                    </dl>
+                    <dl class="separator">
+                        <dt><label for="LanguagesDecimalPoint">Decimal Point</label></dt>
+                        <dd>
+                            <input type="text" name="decimal_point" id="LanguagesDecimalPoint" tabindex="1003" value=".">
+                        </dd>
+                    </dl>
+                    <dl class="separator">
+                        <dt><label for="LanguagesThousandsSep">Thousands Separator</label></dt>
+                        <dd>
+                            <input type="text" name="thousands_sep" id="LanguagesThousandsSep" tabindex="1004" value=",">
+                        </dd>
+                    </dl>
+                    <dl class="separator">
+                        <dt><label>Date Format</label></dt>
+                        <dd>
+                            <label class="radio"><input type="radio" name="date_format" tabindex="1005" value="g:i A">11:41 PM</label>
+                            <label class="radio"><input type="radio" name="date_format" tabindex="1006" value="H:i">23:41</label>
+                            <label class="radio"><input type="radio" name="date_format" class="toggleOtherValue" checked="checked" id="LanguagesDateFormat" tabindex="1007" value="">				<input type="text" class="w256 small" name="date_format_other" value="M j, Y" placeholder="Other" id="LanguagesDateFormatOther" tabindex="1008">			</label>
+                            <div class="desc">Date Formats, see <a href="http://www.php.net/manual/en/function.date.php" target="_blank">php.net</a></div>		</dd>
+                    </dl>
+                    <dl>
+                        <dt><label>Time Format</label></dt>
+                        <dd>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1009" value="M j, Y">Aug 16, 2013</label>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1010" value="F j, Y">August 16, 2013</label>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1011" value="j M Y">16 Aug 2013</label>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1012" value="j F Y">16 August 2013</label>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1013" value="j/n/y">16/8/13</label>
+                            <label class="radio"><input type="radio" name="time_format" tabindex="1014" value="n/j/y">8/16/13</label>
+                            <label class="radio"><input type="radio" name="time_format" class="toggleOtherValue" checked="checked" id="LanguagesTimeFormat" tabindex="1015" value="">				<input type="text" class="w256 small" name="time_format_other" value="H:i" placeholder="Other" id="LanguagesTimeFormatOther" tabindex="1016">			</label>
+
+                            <div class="desc">Date Formats, see <a href="http://www.php.net/manual/en/function.date.php" target="_blank">php.net</a></div>		</dd>
+                    </dl>
+                </fieldset>
+                <div class="buttons">
+                    <input type="submit" value="Save" class="btn" tabindex="1017"></div>
+            </form>
+
+            <hr />
+
+            <form class="inline" autocomplete="off">
+                <legend>Inline Form</legend>
+                <dl>
+                    <dt><label for="Email">Email</label></dt>
+                    <dd>
+                        <input type="text" name="email" class="medium" id="Email" tabindex="1001">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><label for="Password">Password</label></dt>
+                    <dd>
+                        <input type="password" name="password" class="medium" id="Password" tabindex="1002">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt></dt>
+                    <dd>
+                        <label for="Remember" class="checkbox">
+                            <input type="hidden" name="remember" value="">
+                            <input type="checkbox" name="remember" id="Remember" tabindex="1003" value="1">Remember Me</label>
+                    </dd>
+                </dl>
+                <input type="submit" value="Login" class="btn medium" tabindex="1004">
+            </form>
+
+            <hr />
+
+            <form action="/komposta/admin/core/logs" class="well inline" method="post">
+                <legend>Inline Form without markup</legend>
+                <label for="Limit">
+                    Limit	<input type="text" name="limit" class="medium w32 center" value="50" id="Limit" tabindex="1001"></label>
+                <label for="Sort">Sort By</label>
+                <select name="sort" class="medium" id="Sort" tabindex="1002">
+                    <option value="timestamp" selected="selected">Timestamp</option>
+                    <option value="ip">IP Address</option>
+                    <option value="url">Url</option>
+                </select>
+                <select name="way" class="medium" id="Way" tabindex="1003">
+                    <option value="asc">Ascending</option>
+                    <option value="desc" selected="selected">Descending</option>
+                </select>
+                <select name="priority" class="medium" id="Priority" tabindex="1004">
+                    <option value="all">All Priorities</option>
+                    <option value="emergency">Emergency</option>
+                    <option value="alert">Alert</option>
+                    <option value="critical">Critical</option>
+                    <option value="error">Error</option>
+                    <option value="warning">Warning</option>
+                    <option value="notice">Notice</option>
+                    <option value="info">Info</option>
+                    <option value="debug">Debug</option>
+                </select>
+                <input type="submit" value="Go" class="btn medium" tabindex="1005">
+            </form>
+
+
+
+            <hr />
+
+            <form>
+                <fieldset>
+                    <legend>Default Form</legend>
+                    <dl>
+                        <dt><label for="CommentsAuthor">Name</label></dt>
+                        <dd>
+                            <input type="text" name="author" placeholder="Required" id="CommentsAuthor" tabindex="1001">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><label for="CommentsEmail">Email</label></dt>
+                        <dd>
+                            <input type="text" name="email" placeholder="Required" id="CommentsEmail" tabindex="1002">
+                            <div class="desc">It will not be published.</div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><label for="CommentsWebsite">Website</label></dt>
+                        <dd>
+                            <input type="text" name="website" placeholder="Optional" id="CommentsWebsite" tabindex="1003">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><label for="CommentsContent">Comment</label></dt>
+                        <dd>
+                            <textarea name="content" rows="6" placeholder="Required" id="CommentsContent" tabindex="1004"></textarea>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt></dt>
+                        <dd class="checkbox">
+                            <input type="hidden" name="05e3930171a9aef7e9f34c9c68e9e2cb" value="">
+                            <input type="checkbox" name="05e3930171a9aef7e9f34c9c68e9e2cb" id="Comments05e3930171a9aef7e9f34c9c68e9e2cb" tabindex="1005" value="1"><label for="Comments05e3930171a9aef7e9f34c9c68e9e2cb">I am human, i swear!</label>
+                        </dd>
+                    </dl>
+                </fieldset>
+                <div class="buttons">
+                    <input type="submit" value="Save" class="btn" tabindex="1006">	</div>
+            </form>
+
+            <hr />
+
+            <p>
+                <span class="label emergency">Emergency</span>
+                <span class="label alert">Alert</span>
+                <span class="label critical">Critical</span>
+                <span class="label error">Error</span>
+                <span class="label warning">Warning</span>
+                <span class="label notice">Notice</span>
+                <span class="label info">Info</span>
+                <span class="label debug">Debug</span>
+            </p>
+
+
+
+            <div class="bulletin emergency">
+                <h4>Emergency</h4>
+                <ul>
+                    <li>First Message</li>
+                    <li>Second Message</li>
+                    <li>Third Message</li>
+                </ul>
+            </div>
+            <div class="bulletin alert">
+                <h4>Alert</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin critical">
+                <h4>Critical</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin error">
+                <h4>Error</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin warning">
+                <h4>Warning</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin notice">
+                <h4>Notice</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin info">
+                <h4>Info</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+            </div>
+            <div class="bulletin debug">
+                <h4>Debug</h4>
+                <p><strong>Message</strong>: blah blah blah blah!</p>
+                <p>Another blah blah blah blah!</p>
+            </div>
+
+
+            <table class="table">
+                <caption>Default</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table class="table zebra">
+                <caption>Zebra</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+            <table class="table cells">
+                <caption>Cells</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+            <table class="table hover">
+                <caption>Hover</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table class="table compact">
+                <caption>Compact</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table class="table zebra cells hover compact">
+                <caption>All variations</caption>
+                <thead>
+                    <tr class="ihead">
+                        <th class="w1"><input type="checkbox" name="selectall" id="Selectall" tabindex="1001" value="1"></th>
+                        <th>Table</th>
+                        <th class="right">Records</th>
+                        <th class="center">Engine</th>
+                        <th class="center">Collation</th>
+                        <th class="right">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1002" value="contact"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/contact" title="" data-original-title="Table Structure">contact</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/contact" title="" data-original-title="Browse Table">3</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1003" value="cron"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/cron" title="" data-original-title="Table Structure">cron</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/cron" title="" data-original-title="Browse Table">5</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1004" value="languages"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/languages" title="" data-original-title="Table Structure">languages</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/languages" title="" data-original-title="Browse Table">1</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">32.00 KB</td>
+                    </tr>
+                    <tr>
+                        <td class="w1"><input type="checkbox" name="selected[]" tabindex="1005" value="login_attempts"></td>
+                        <td><i class="icon-table"></i> <a href="/admin/core/database/structure/login_attempts" title="" data-original-title="Table Structure">login_attempts</a></td>
+                        <td class="right">~ <a href="/admin/core/database/browse/login_attempts" title="" data-original-title="Browse Table">0</a></td>
+                        <td class="center">InnoDB</td>
+                        <td class="center">utf8_general_ci</td>
+                        <td class="right">16.00 KB</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td colspan="2">Tables: 29</td>
+                        <td class="right">Records: ~ 2,134</td>
+                        <td class="right" colspan="3">Size: 2.00 MB</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+
+            <div class="pagination small">
+                <ol>
+                    <li><a href="#">Page 5 of 26</a></li>
+                    <li><a href="/komposta/admin/pages/browse?limit=5">First</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5" title="" data-original-title="Previous">«</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-3?limit=5">3</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5">4</a></li>
+                    <li class="active"><a href="/komposta/admin/pages/browse/page-5?limit=5">5</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5">6</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-7?limit=5">7</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5" title="" data-original-title="Next">»</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-26?limit=5">Last</a></li>
+                </ol>
+            </div>
+
+            <div class="pagination medium">
+                <ol>
+                    <li><a href="#">Page 5 of 26</a></li>
+                    <li><a href="/komposta/admin/pages/browse?limit=5">First</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5" title="" data-original-title="Previous">«</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-3?limit=5">3</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5">4</a></li>
+                    <li class="active"><a href="/komposta/admin/pages/browse/page-5?limit=5">5</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5">6</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-7?limit=5">7</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5" title="" data-original-title="Next">»</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-26?limit=5">Last</a></li>
+                </ol>
+            </div>
+
+            <div class="pagination">
+                <ol>
+                    <li><a href="#">Page 5 of 26</a></li>
+                    <li><a href="/komposta/admin/pages/browse?limit=5">First</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5" title="" data-original-title="Previous">«</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-3?limit=5">3</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5">4</a></li>
+                    <li class="active"><a href="/komposta/admin/pages/browse/page-5?limit=5">5</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5">6</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-7?limit=5">7</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5" title="" data-original-title="Next">»</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-26?limit=5">Last</a></li>
+                </ol>
+            </div>
+
+
+            <div class="pagination large">
+                <ol>
+                    <li><a href="#">Page 5 of 26</a></li>
+                    <li><a href="/komposta/admin/pages/browse?limit=5">First</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5" title="" data-original-title="Previous">«</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-3?limit=5">3</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5">4</a></li>
+                    <li class="active"><a href="/komposta/admin/pages/browse/page-5?limit=5">5</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5">6</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-7?limit=5">7</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5" title="" data-original-title="Next">»</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-26?limit=5">Last</a></li>
+                </ol>
+            </div>
+
+            <div class="pagination xlarge">
+                <ol>
+                    <li><a href="#">Page 5 of 26</a></li>
+                    <li><a href="/komposta/admin/pages/browse?limit=5">First</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5" title="" data-original-title="Previous">«</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-3?limit=5">3</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-4?limit=5">4</a></li>
+                    <li class="active"><a href="/komposta/admin/pages/browse/page-5?limit=5">5</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5">6</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-7?limit=5">7</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-6?limit=5" title="" data-original-title="Next">»</a></li>
+                    <li><a href="/komposta/admin/pages/browse/page-26?limit=5">Last</a></li>
+                </ol>
+            </div>
+
+
+            <div class="progress emergency">
+                <div class=" wp20">Completed: 20%</div>
+            </div>
+            <div class="progress alert">
+                <div class=" wp30">Completed: 30%</div>
+            </div>
+            <div class="progress critical">
+                <div class=" wp40">Completed: 40%</div>
+            </div>
+            <div class="progress error">
+                <div class=" wp50">Completed: 50%</div>
+            </div>
+            <div class="progress warning">
+                <div class=" wp60">Completed: 60%</div>
+            </div>
+            <div class="progress notice">
+                <div class=" wp70">Completed: 70%</div>
+            </div>
+            <div class="progress info">
+                <div class=" wp80">Completed: 80%</div>
+            </div>
+            <div class="progress debug">
+                <div class=" wp90">Completed: 90%</div>
+            </div>
+
+            <div class="progress critical small">
+                <div class=" wp40">Small: 40%</div>
+            </div>
+            <div class="progress error medium">
+                <div class=" wp50">Medium: 50%</div>
+            </div>
+            <div class="progress warning">
+                <div class=" wp60">Default: 60%</div>
+            </div>
+            <div class="progress notice large">
+                <div class=" wp70">Large: 70%</div>
+            </div>
+            <div class="progress info xlarge">
+                <div class=" wp80">XLarge: 80%</div>
+            </div>
+
+
+            <div class="progress alert stripes">
+                <div class=" wp70">Completed: 70%</div>
+            </div>
+
+            <div class="progress alert stripes live">
+                <div class=" wp70">Completed: 70%</div>
+            </div>
+
+
+
+
+            <ul class="menu horizontal small">
+                <li class="active"><a href="#">Main</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <hr />
+
+            <ul class="menu horizontal medium">
+                <li><a href="#">Main</a></li>
+                <li class="active"><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <hr />
+            <ul class="menu horizontal">
+                <li><a href="#">Main</a></li>
+                <li><a href="#">About Us</a></li>
+                <li class="active"><a href="#">Contact Us</a></li>
+            </ul>
+            <hr />
+
+            <ul class="menu horizontal large">
+                <li class="active"><a href="#">Main</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <hr />
+            <ul class="menu horizontal xlarge">
+                <li><a href="#">Main</a></li>
+                <li class="active"><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <hr />
+
+            <hr />
+
+            <ul class="menu vertical info">
+                <li><a href="#">Main</a></li>
+                <li><a href="#">About Us</a></li>
+                <li class="active"><a href="#">Contact Us</a></li>
+            </ul>
+
+
+            <hr />
+
+            <ol class="breadcrumbs crumbs">
+                <li><a href="#">Epipedo</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">breadcrumbs</a></li>
+            </ol>
+            <br />
+
+
+
+            <ol class="breadcrumbs xlarge">
+                <li><a href="#">Epipedo</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Docs</a></li>
+                <li><span>breadcrumbs</span></li>
+            </ol>
+            <br />
+
+
+
+
+
+
+
+
+            <br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+        </div>
+
+    </body>
+</html>

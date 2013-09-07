@@ -1,0 +1,37 @@
+code,
+pre {
+	font-family: @code-font-familiy;
+	font-size: @code-font-size;
+}
+
+code {
+	.wide(@code-padding, 2);
+	background-color: @code-bg;
+	border: 1px solid @code-border;
+	border-radius: @code-radius;
+	color: @code-text-color;
+	white-space: nowrap;
+}
+
+pre {
+	display: block;
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+    border: 3px solid @code-border;
+    padding: 0;
+    margin: 0 0 @margin-medium 0;
+	border-radius: @code-radius;
+	background-color: @code-bg;
+
+	code {
+		display: block;
+		max-height: 450px;
+		overflow: auto;
+		white-space: pre;
+		word-break: normal;
+		word-wrap: normal;
+		border: 0;
+		color: inherit;
+	}
+}

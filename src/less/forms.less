@@ -1,0 +1,233 @@
+.input-size(@padding, @font-size, @radius) {
+	font-size: @font-size;
+	border-radius: @radius;
+	.height(@line-height, @font-size, @padding, 2);
+}
+
+fieldset {
+    padding: 0 0 @form-spacing 0;
+    margin: 0 0 @form-spacing 0;
+    border: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 @form-spacing 0;
+	border: 0;
+    font-size: @form-legend-font-size;
+}
+
+fieldset, legend {
+ .hr();
+}
+
+form {
+	padding: 0;
+	margin: 0;
+
+	dl, dt, dd {
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+
+	dl {
+		padding: 8px 0;
+		margin: 0 @form-spacing;
+		dd > div {
+			margin: @margin-small 0 0 @margin-small;
+		}
+	}
+
+	dt > label {
+		display: block;
+		font-weight: bold;
+	}
+
+	.buttons {
+		padding: @form-spacing;
+	}
+
+	&.inline dt > label:after,
+	&.horizontal dt > label:after {
+		content: ":";
+	}
+
+    &.compact, .compact {
+        dl {
+            padding:0;
+            margin:0;
+        }
+
+    }
+
+	&.inline {
+		dl, dt, dd {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		dl {
+			margin: 0;
+		}
+
+		.buttons {
+			padding: 0;
+			display: inline-block;
+		}
+		input, select { width: auto; }
+	}
+
+	&.confirm {
+		.buttons {
+			padding: @form-spacing 0 0 0;
+			text-align: right;
+		}
+	}
+
+	&.horizontal {
+		.buttons {
+			padding: @form-spacing @form-spacing @form-spacing 210px;
+		}
+
+		dl {
+			margin: 0;
+			.clearfix;
+			&.separator {
+				.hr();
+			}
+			dt {
+				float: left;
+				width: 200px;
+				text-align: right;
+
+				> label {
+					margin: 5px 0 0 0;
+				}
+			}
+			dd {
+				margin: 0 @form-spacing 0 210px;
+				&.checkbox > label {
+					margin-left: 0px;
+				}
+			}
+		}
+	}
+}
+
+input,
+select,
+textarea {
+    display: inline-block;
+    padding: @padding-default;
+    font-size: @font-size-default;
+	width: 100%;
+	vertical-align: middle;
+	border-radius: @radius-default;
+	background-color: @form-input-bg;
+    border: 1px solid @form-input-border;
+	.height(@line-height, @font-size-default, @padding-default, 2);
+
+    -webkit-transition: border 0.4s ease 0s;
+    -moz-transition: border 0.4s ease 0s;
+    -o-transition: border 0.4s ease 0s;
+    transition: border 0.4s ease 0s;
+
+	&:focus {
+		border-color: @form-input-outline;
+		outline: 0;
+	}
+
+	&.small  { .input-size(@padding-small, @font-size-small, @radius-small);    }
+	&.medium { .input-size(@padding-medium, @font-size-medium, @radius-medium); }
+	&.large  { .input-size(@padding-large, @font-size-large, @radius-large);    }
+	&.xlarge { .input-size(@padding-xlarge, @font-size-xlarge, @radius-xlarge); }
+}
+
+textarea {
+    min-height: 6 *@font-size-default;
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    height: auto;
+    margin: -3px 4px 0 0;
+    border-color: @form-input-border;
+    border-radius: 0px;
+
+
+
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+
+textarea,
+select[size],
+select[multiple] {
+    height: auto;
+}
+
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    outline: thin dotted #333;
+    outline: 1px auto @form-input-outline;
+}
+
+label {
+	&.radio,
+	&.checkbox {
+		margin: 4px 0 0 0;
+		display: block;
+
+		&.inline {
+			display: inline-block;
+			margin-right: 10px;
+		}
+	}
+}
+
+input, textarea {
+	&::-webkit-input-placeholder { color: @form-input-placeholder; }
+	&::-moz-placeholder          { color: @form-input-placeholder; }
+	&:-moz-placeholder           { color: @form-input-placeholder; }
+	&:-ms-input-placeholder      { color: @form-input-placeholder; }
+}
+
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+    cursor: not-allowed!important;
+    background-color: @form-input-bg-disabled;
+}
+
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly] {
+    background-color: transparent;
+}
+
+input + input,
+input + select,
+select + input,
+select + select {
+    margin-left: @form-multi-margin;
+}

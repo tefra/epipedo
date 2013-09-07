@@ -1,0 +1,83 @@
+.progress-size(@padding, @font-size, @radius) {
+    border-radius: @radius;
+    & > div {
+        font-size: @font-size;
+        padding: @padding;
+        .height(@line-height, @font-size, @padding);
+    }
+}
+
+.progress-colors(@color) {
+    &  > div {
+        background-color: @color;
+        @text-color: contrast(@color, @btn-color, @btn-color-light, 0.75);
+        @darken: darken(@color, 6%);
+        color: @text-color;
+    }
+}
+
+@-webkit-keyframes pb-live {
+    from { background-position: 0 0;       }
+    to   { background-position: 30px 30px; }
+}
+
+@-moz-keyframes pb-live {
+    from { background-position: 0 0;       }
+    to   { background-position: 30px 30px; }
+}
+
+@-o-keyframes pb-live {
+    from { background-position: 0 0;       }
+    to   { background-position: 30px 30px; }
+}
+
+@keyframes pb-live {
+    from { background-position: 0 0;       }
+    to   { background-position: 30px 30px; }
+}
+
+.progress {
+    border: 1px solid @pb-border;
+    margin: @pb-margin 0px;
+    background: white;
+    overflow: hidden;
+
+    > div {
+        text-align: right;
+    }
+
+    &.stripes > div {
+        .stripes;
+        background-size: 30px 30px;
+    }
+
+    &.live > div {
+        -webkit-animation: pb-live 2s linear infinite;
+        -moz-animation: pb-live 2s linear infinite;
+        -ms-animation: pb-live 2s linear infinite;
+        -o-animation: pb-live 2s linear infinite;
+        animation: pb-live 2s linear infinite;
+
+    }
+
+    &, &.debug    { .progress-colors(@color-debug);     }
+    &.info        { .progress-colors(@color-info);      }
+    &.notice      { .progress-colors(@color-notice);    }
+    &.warning     { .progress-colors(@color-warning);   }
+    &.error       { .progress-colors(@color-error);     }
+    &.critical    { .progress-colors(@color-critical);  }
+    &.alert       { .progress-colors(@color-alert);     }
+    &.emergency   { .progress-colors(@color-emergency); }
+
+    .progress-size(@padding-default, @font-size-default, @radius-default);
+    &.small       { .progress-size(@padding-small, @font-size-small, @radius-small);    }
+    &.medium      { .progress-size(@padding-medium, @font-size-medium, @radius-medium); }
+    &.large       { .progress-size(@padding-large, @font-size-large, @radius-large);    }
+    &.xlarge      { .progress-size(@padding-xlarge, @font-size-xlarge, @radius-xlarge); }
+}
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+.pagination-size(@padding, @font-size, @radius) {
+	ol > li > a {
+		.wide(@padding);
+		.height(@line-height, @font-size, @padding, 2);
+		font-size: @font-size;
+		border-radius: @radius;
+	}
+}
+
+
+.pagination {
+	margin: @pagination-margin 0;
+    font-weight: @pagination-font-weight;
+	ol {
+		list-style: none;
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: inline-block;
+
+			> a {
+				display: block;
+				color: @color-text;
+				background-color: @pagination-background;
+				border: 1px solid @pagination-border;
+				text-decoration: none;
+
+				&:hover {
+					background-color: @pagination-hover;
+					color: @color-text;
+					text-decoration: none;
+				}
+			}
+
+			&.active > a {
+				cursor: default;
+				font-weight: bold;
+				color: @color-text-desc;
+				background-color: @pagination-hover;
+			}
+		}
+	}
+
+	.pagination-size(@padding-default, @font-size-default, @radius-default);
+	&.small       { .pagination-size(@padding-small, @font-size-small, @radius-small);    }
+	&.medium      { .pagination-size(@padding-medium, @font-size-medium, @radius-medium); }
+	&.large       { .pagination-size(@padding-large, @font-size-large, @radius-large);    }
+	&.xlarge      { .pagination-size(@padding-xlarge, @font-size-xlarge, @radius-xlarge); }
+}

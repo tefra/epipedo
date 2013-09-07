@@ -1,0 +1,31 @@
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+}
+
+.clearfix {
+    zoom:1;
+    &:before, &:after{ content:""; display:table; }
+    &:after{ clear: both; }
+}
+
+.height(@l: @line-height, @s: @font-size-default, @p: @padding-default-y, @add: 0) {
+    height: (floor(@s * @l) + (@p * 2) + @add);
+}
+
+.wide(@value, @multi: 3) {
+    padding: @value @value * @multi;
+}
+
+.hr(@top: @hr-top-color, @bottom: @hr-bottom-color) {
+    border-bottom: 1px solid @top;
+    .box-shadow(0 1px 0 @hr-bottom-color);
+}
+
+.stripes(@angle: 135deg) {
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.1)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.1)), color-stop(.75, rgba(255,255,255,.1)), color-stop(.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.1) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.1) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(@angle, rgba(255,255,255,.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.1) 50%, rgba(255,255,255,.1) 75%, transparent 75%, transparent);
+}

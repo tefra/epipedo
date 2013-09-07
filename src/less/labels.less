@@ -1,0 +1,27 @@
+.label-colors(@color) {
+	background-color: @color;
+	&, > a, > a:hover {
+		color: contrast(@color, @color-text, @color-text-light, 0.75);
+	}
+}
+
+.label {
+    display: inline-block;
+    font-size: @label-font-size;
+    font-weight: bold;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: @label-radius;
+    line-height: 1;
+    padding: 0.364em 0.364em 0.273em;
+
+	&, &.debug  { .label-colors(@color-debug);     }
+	&.info      { .label-colors(@color-info);      }
+	&.notice    { .label-colors(@color-notice);    }
+	&.warning   { .label-colors(@color-warning);   }
+	&.error     { .label-colors(@color-error);     }
+	&.critical  { .label-colors(@color-critical);  }
+	&.alert     { .label-colors(@color-alert);     }
+	&.emergency { .label-colors(@color-emergency); }
+}
+

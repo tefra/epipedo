@@ -1,0 +1,99 @@
+.menu-size(@padding, @font-size, @radius) {
+    > li {
+        > a, > span {
+            .height(@line-height, @font-size, @padding, 2);
+            // +1 to match buttons and inputs height 1px border
+            padding: @padding + 1 @padding * 3;
+            font-size: @font-size;
+            border-radius: @radius;
+        }
+    }
+
+    &.compact > li {
+        > a, > span {
+            // +1 to match buttons and inputs height 1px border
+            padding: @padding + 1;
+        }
+    }
+}
+
+.menu,
+.breadcrumbs {
+    padding: 0;
+    margin: 0 0 @menu-margin 0;
+    list-style: none;
+
+    .menu-size(@padding-default, @font-size-default, @radius-default);
+    &.small       { .menu-size(@padding-small, @font-size-small, @radius-small);    }
+    &.medium      { .menu-size(@padding-medium, @font-size-medium, @radius-medium); }
+    &.large       { .menu-size(@padding-large, @font-size-large, @radius-large);    }
+    &.xlarge      { .menu-size(@padding-xlarge, @font-size-xlarge, @radius-xlarge); }
+}
+
+.menu {
+    .clearfix;
+    > li {
+        &, > a, > span {
+            display: block;
+        }
+        > a:hover {
+            background-color: @menu-bg-hover;
+            text-decoration: none;
+        }
+
+        &.active {
+            > a, > span {
+                background-color: @menu-bg-active;
+                color: #fff;
+            }
+            > a:hover {
+                pointer-events: none;
+                cursor: default;
+            }
+        }
+    }
+
+    &.horizontal {
+        > li {
+            float: left;
+            + li {
+                margin-left: @menu-spacing;
+            }
+        }
+    }
+
+    &.vertical {
+        > li + li {
+            margin-top: @menu-spacing;
+        }
+    }
+}
+
+.breadcrumbs {
+    background-color: @menu-crumbs-bg;
+    border-radius: @menu-crumbs-radius;
+
+    > li {
+        &, > a, > span {
+            display: inline-block;
+        }
+
+        > a:hover {
+            text-decoration: underline;
+        }
+
+        &.disabled > *,
+        &:last-child > * {
+            color: @menu-disabled;
+            cursor: default;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        + li:before {
+            content: "\002F\00A0";
+            color: @menu-disabled;
+        }
+    }
+}

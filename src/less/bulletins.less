@@ -1,0 +1,31 @@
+.bulletin-colors(@color, @background, @border) {
+	color: @color;
+	border-color: @border;
+	background-color: @background;
+}
+
+.bulletin {
+	.wide(@bulletin-padding, 2);
+	margin-bottom: @bulletin-margin-bottom;
+	border: 1px solid transparent;
+	border-radius: @bulletin-radius;
+
+	&, &.debug      { .bulletin-colors(@color-debug-f9, @color-debug-f1, @color-debug-f2); }
+	&.info          { .bulletin-colors(@color-info-f9, @color-info-f1, @color-info-f2); }
+	&.notice        { .bulletin-colors(@color-notice-f9, @color-notice-f1, @color-notice-f2); }
+	&.warning       { .bulletin-colors(@color-warning-f9, @color-warning-f1, @color-warning-f2); }
+	&.error         { .bulletin-colors(@color-error-f9, @color-error-f1, @color-error-f2); }
+	&.critical      { .bulletin-colors(@color-critical-f9, @color-critical-f1, @color-critical-f2); }
+	&.alert         { .bulletin-colors(@color-alert-f9, @color-alert-f1, @color-alert-f2); }
+	&.emergency     { .bulletin-colors(@color-emergency-f9, @color-emergency-f1, @color-emergency-f2); }
+
+	p, ul, ol {
+		margin-bottom: 0;
+	}
+    h4 {
+        margin: 0;
+    }
+	p + p {
+		margin-top: @bulletin-paragraph-margin;
+	}
+}
