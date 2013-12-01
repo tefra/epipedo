@@ -1456,6 +1456,13 @@ select + select {
   margin-top: 9px;
 }
 
+.bulletin .close {
+  position: relative;
+  top: -6px;
+  right: -10px;
+  color: inherit;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1920,4 +1927,31 @@ table {
 .breadcrumbs > li + li:before {
   color: #999999;
   content: "\002F\00A0";
+}
+
+.close {
+  float: right;
+  font-size: 19.5px;
+  font-weight: bold;
+  line-height: 1;
+  color: #333333;
+  outline: none;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
 }
